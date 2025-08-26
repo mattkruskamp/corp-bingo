@@ -1,0 +1,29 @@
+# Node
+node_modules/
+
+# Vite build
+/dist
+
+# Env files
+.env*
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.local
+
+# Tailwind JIT
+/.tailwind-cache

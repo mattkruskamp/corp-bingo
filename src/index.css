@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme CSS variables */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #e2e8f0;
+  --bg-surface: #fff;
+  --text-primary: #222;
+  --text-secondary: #555;
+  --text-muted: #888;
+  --accent-primary: #2563eb;
+  --accent-success: #22c55e;
+  --accent-warning: #facc15;
+  --accent-error: #ef4444;
+  --border-color: #cbd5e1;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #18181b;
+  --bg-secondary: #27272a;
+  --bg-surface: #23232b;
+  --text-primary: #fafafa;
+  --text-secondary: #e5e7eb;
+  --text-muted: #a1a1aa;
+  --accent-primary: #60a5fa;
+  --accent-success: #4ade80;
+  --accent-warning: #fde047;
+  --accent-error: #f87171;
+  --border-color: #3f3f46;
+  --shadow-color: rgba(0, 0, 0, 0.32);
+}
+
+/* Custom global styles can be added here */
+/* Dark theme styles */
+[data-theme='dark'] body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+[data-theme='dark'] .bg-white {
+  background-color: var(--bg-surface) !important;
+}
+[data-theme='dark'] .text-gray-900 {
+  color: var(--text-primary) !important;
+}
+[data-theme='dark'] .shadow-lg {
+  box-shadow: 0 4px 24px var(--shadow-color) !important;
+}
+[data-theme='dark'] .border-gray-300 {
+  border-color: var(--border-color) !important;
+}
+[data-theme='dark'] .win-ring-transition {
+  box-shadow: 0 0 0 4px var(--accent-warning) !important;
+}
+[data-theme='dark'] .win-pulse {
+  box-shadow: 0 0 20px 10px var(--accent-warning) !important;
+}
+[data-theme='dark'] .bg-blue-600 {
+  background-color: var(--accent-primary) !important;
+}
+[data-theme='dark'] .bg-green-500 {
+  background-color: var(--accent-success) !important;
+}
+[data-theme='dark'] .bg-yellow-200 {
+  background-color: var(--accent-warning) !important;
+}
+[data-theme='dark'] .text-white {
+  color: var(--text-secondary) !important;
+}
+[data-theme='dark'] .text-yellow-900 {
+  color: var(--accent-warning) !important;
+}
+
+/* Confetti animation for WinCelebration */
+.confetti {
+  position: relative;
+  width: 100px;
+  height: 40px;
+}
+.confetti::before,
+.confetti::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 16px;
+  background: linear-gradient(135deg, #fbbf24 40%, #f472b6 60%, #60a5fa 100%);
+  border-radius: 2px;
+  animation: confetti-fall 1s infinite linear;
+}
+.confetti::after {
+  left: 40px;
+  animation-delay: 0.5s;
+}
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(40px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Winning space highlight transition */
+.win-ring-transition {
+  transition:
+    box-shadow 0.3s,
+    background 0.3s;
+}
+
+/* Celebration overlay animation */
+.win-bounce {
+  /* Accessibility: High Contrast Mode */
+  animation: win-bounce 1s infinite;
+}
+@keyframes win-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.win-pulse {
+  animation: win-pulse 1.2s infinite;
+}
+@keyframes win-pulse {
+  0% {
+    box-shadow: 0 0 0 0 #fbbf24;
+  }
+  70% {
+    box-shadow: 0 0 20px 10px #fbbf24;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #fbbf24;
+  }
+}
